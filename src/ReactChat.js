@@ -7,6 +7,7 @@ export default class ReactChat extends Component {
     return (
       <div>
         <UserMessage/>
+        <p>monke</p>
       </div>
     );
   }

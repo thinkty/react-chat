@@ -8,11 +8,46 @@ export const messageTypes = {
   video: 2,
 };
 
+const defaultPrimaryStyle = {
+  color: '#fff',
+  backgroundColor: '#7070db',
+  border: `thin solid #7070db`,
+  borderRadius: '10px',
+  padding: '6px',
+  margin: '3px',
+  display: 'inline-block',
+  fontFamily: 'Helvetica, sans-serif',
+  overflowWrap: 'break-word',
+  maxWidth: '200px',
+};
+
+const defaultSecondaryStyle = {
+  color: '#000',
+  backgroundColor: '#DCDCDC',
+  border: 'thin solid #DCDCDC',
+  borderRadius: '10px',
+  padding: '6px',
+  margin: '3px',
+  display: 'inline-block',
+  fontFamily: 'Helvetica, sans-serif',
+  overflowWrap: 'break-word',
+  maxWidth: '200px',
+};
+
+const defaultSenderStyle = {
+  color: '#808080',
+  fontFamily: 'Helvetica, sans-serif',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  margin: '5px 0px 0px 10px',
+};
+
 const propTypes = {
   message: PropTypes.string.isRequired,
   isOwner: PropTypes.bool,
   sender: PropTypes.string,
-  time: PropTypes.instanceOf(Date),
+  senderStyle: withStylesPropTypes,
   messageType: PropTypes.oneOf(Object.keys(messageTypes)),
   primaryStyle: withStylesPropTypes,
   secondaryStyle: withStylesPropTypes,
@@ -20,25 +55,11 @@ const propTypes = {
 
 const defaultProps = {
   isOwner: false,
-  sender: '',
-  time: '',
+  sender: '?',
+  senderStyle: defaultSenderStyle,
   messageType: messageTypes.text,
-  primaryStyle: {
-    color: '#000',
-    backgroundColor: '#d2e8ba',
-    border: `thin solid #d2e8ba`,
-    borderRadius: '10px',
-    padding: '6px',
-    fontFamily: 'Helvetica, sans-serif',
-  },
-  secondaryStyle: {
-    color: '#000',
-    backgroundColor: '#fff',
-    border: 'thin solid black',
-    borderRadius: '10px',
-    padding: '6px',
-    fontFamily: 'Helvetica, sans-serif',
-  },
+  primaryStyle: defaultPrimaryStyle,
+  secondaryStyle: defaultSecondaryStyle,
 };
 
 /**
@@ -49,7 +70,6 @@ const defaultProps = {
  * - message (*required*) : message content
  * - isOwner : indicates whether the message is sent by the owner
  * - sender : name of the sender
- * - time : timestamp of the message
  * - messageType : type of message chosen from the *messageTypes* enum
  * - primaryStyle : message style for the messages sent by the owner
  * - secondaryStyle : message style for the messages sent by others
@@ -60,20 +80,46 @@ class UserMessage extends Component {
       message,
       isOwner,
       sender,
-      time,
+      senderStyle,
       messageType,
       primaryStyle,
       secondaryStyle
     } = this.props;
 
-    // TODO: form message bubble
+    const messageStyle =
+      isOwner ?
+      {
+        ...defaultPrimaryStyle,
+        ...primaryStyle,
+      } :
+      {
+        ...defaultSecondaryStyle,
+        ...secondaryStyle
+      };
+
+    // TODO: handle no message
+
     return (
-      <div
-        style={isOwner ? primaryStyle : secondaryStyle}
-      >
-        {
-          message
-        }
+      <div>
+        <div
+          style={{
+            ...defaultSenderStyle,
+            textAlign: isOwner ? 'right' : 'left',
+            width: messageStyle.maxWidth,
+            ...senderStyle,
+          }}
+        >
+          {
+            sender
+          }
+        </div>
+        <span
+          style={messageStyle}
+        >
+          {
+            message
+          }
+        </span>
       </div>
     );
   }

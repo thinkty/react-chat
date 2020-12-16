@@ -71,6 +71,7 @@ const defaultProps = {
  * - message (*required*) : message content
  * - isOwner : indicates whether the message is sent by the owner
  * - sender : name of the sender
+ * - senderStyle : display style for the sender name 
  * - messageType : type of message chosen from the *messageTypes* enum
  * - primaryStyle : message style for the messages sent by the owner
  * - secondaryStyle : message style for the messages sent by others
@@ -98,8 +99,6 @@ class UserMessage extends Component {
         ...secondaryStyle
       };
 
-    // TODO: handle no message
-
     return (
       <div
         style={{
@@ -126,9 +125,7 @@ class UserMessage extends Component {
             }
           </span>
         </div>
-        <span
-          style={messageStyle}
-        >
+        <span style={messageStyle}>
           {
             message
           }

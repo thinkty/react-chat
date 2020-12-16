@@ -1,16 +1,33 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import UserMessage from './UserMessage';
+import UserMessage, { messageTypes } from './UserMessage';
+import Message from './lib/Message';
 
 const propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
+  messageComponent: PropTypes.elementType,
+  // TODO: instead of passing down a message component, just pass down the props to the UserMessage
+  messages: PropTypes.arrayOf(PropTypes.instanceOf(Message)),
 };
 
-// TODO: Create a class for message
-
+/**
+ * Component for individual dialogue bubbles sent by users. At the moment, the
+ * only supported message type is text.
+ * 
+ * ### Props
+ * - height : height of the chat view
+ * - width : width of the chat view
+ * - messageComponent : user styled UserMessage component
+ */
 export default class ReactChat extends Component {
   render() {
+    const message = new Message({
+      sender: 'Mark',
+      message: 'lol',
+      messageType: messageTypes.text,
+    });
+
     return (
       <div>
         <p>React Chat</p>
@@ -32,8 +49,7 @@ export default class ReactChat extends Component {
         />
         <UserMessage
           isOwner
-          sender="Mark Hamill"
-          message="Hello World"
+          sender="Empty Message"
           secondaryStyle={{
             color: '#0f0'
           }}

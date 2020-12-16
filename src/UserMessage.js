@@ -40,7 +40,8 @@ const defaultSenderStyle = {
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
   overflow: 'hidden',
-  margin: '5px 0px 0px 10px',
+  margin: '5px 10px 0px 10px',
+  maxWidth: '200px',
 };
 
 const propTypes = {
@@ -100,18 +101,30 @@ class UserMessage extends Component {
     // TODO: handle no message
 
     return (
-      <div>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'auto',
+          justifyContent: isOwner ? 'end' : 'start'
+        }}
+      >
         <div
           style={{
-            ...defaultSenderStyle,
-            textAlign: isOwner ? 'right' : 'left',
-            width: messageStyle.maxWidth,
-            ...senderStyle,
+            display: 'grid',
+            gridTemplateColumns: 'auto',
+            justifyContent: isOwner ? 'end' : 'start'
           }}
         >
-          {
-            sender
-          }
+          <span
+            style={{
+              ...defaultSenderStyle,
+              ...senderStyle,
+            }}
+          >
+            {
+              sender
+            }
+          </span>
         </div>
         <span
           style={messageStyle}

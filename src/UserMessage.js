@@ -1,47 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStylesPropTypes } from 'react-with-styles';
+import {
+  defaultPrimaryStyle,
+  defaultSecondaryStyle,
+  defaultSenderStyle,
+} from './lib/styles';
 
 export const messageTypes = {
   text: 0,
   image: 1,
   video: 2,
-};
-
-const defaultPrimaryStyle = {
-  color: '#fff',
-  backgroundColor: '#7070db',
-  border: `thin solid #7070db`,
-  borderRadius: '10px',
-  padding: '6px',
-  margin: '3px',
-  display: 'inline-block',
-  fontFamily: 'Helvetica, sans-serif',
-  overflowWrap: 'break-word',
-  maxWidth: '200px',
-};
-
-const defaultSecondaryStyle = {
-  color: '#000',
-  backgroundColor: '#DCDCDC',
-  border: 'thin solid #DCDCDC',
-  borderRadius: '10px',
-  padding: '6px',
-  margin: '3px',
-  display: 'inline-block',
-  fontFamily: 'Helvetica, sans-serif',
-  overflowWrap: 'break-word',
-  maxWidth: '200px',
-};
-
-const defaultSenderStyle = {
-  color: '#808080',
-  fontFamily: 'Helvetica, sans-serif',
-  textOverflow: 'ellipsis',
-  whiteSpace: 'nowrap',
-  overflow: 'hidden',
-  margin: '5px 10px 0px 10px',
-  maxWidth: '200px',
 };
 
 const propTypes = {

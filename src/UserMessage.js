@@ -68,6 +68,7 @@ class UserMessage extends Component {
         ...secondaryStyle
       };
 
+    // TODO: Bug with span width. Even if the message is short, if the name is long, there is always blank space 
     return (
       <div
         style={{

@@ -30,16 +30,17 @@ export function assert(key, value) {
 export function checkArgsForMessage(args) {
   assert('args', args);
 
-  const { sender, message, messageType } = args;
+  const { isOwner, sender, message, messageType } = args;
 
+  assert('isOwner', isOwner);
   assert('sender', sender);
   assert('message', message);
   if (message === '') {
     throw new Error('Message is empty');
   }
   assert('messageType', messageType);
-  if (!messageTypes.includes(message)) {
-    throw new Error(`Unexpected message type ${message}`);
+  if (!messageTypes.includes(messageType)) {
+    throw new Error(`Unexpected message type ${messageType}`);
   }
 
   return args;

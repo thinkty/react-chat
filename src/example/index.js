@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactChat from '../index';
 import Message from '../lib/Message';
+import { messageTypes } from '../UserMessage';
 
 const messages = [];
 messages.push(new Message({
@@ -31,7 +32,7 @@ messages.push(new Message({
 messages.push(new Message({
   isOwner: true,
   sender: 'Empty Message',
-  message: '',
+  message: 'No',
   messageType: messageTypes.text,
 }));
 
@@ -39,7 +40,9 @@ ReactDOM.render(
   <div>
     <p>React Chat</p>
     <ReactChat
-    
+      height="100%"
+      width="500px"
+      messages={messages}
     />
   </div>
 , document.getElementById('root'));

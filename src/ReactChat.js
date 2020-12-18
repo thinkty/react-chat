@@ -55,6 +55,7 @@ class ReactChat extends Component {
         style={{
           height,
           width,
+          overflow: 'auto',
         }}
       >
         {

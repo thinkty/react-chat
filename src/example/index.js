@@ -40,7 +40,7 @@ ReactDOM.render(
   <div>
     <p>React Chat</p>
     <ReactChat
-      height="100%"
+      height="300px"
       width="500px"
       messages={messages}
     />

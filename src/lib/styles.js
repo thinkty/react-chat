@@ -37,6 +37,7 @@ export const defaultSenderStyle = {
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
   overflow: 'hidden',
-  margin: '5px 10px 0px 10px',
+  margin: '5px 5px 3px',
+  display: 'inline-block',
   maxWidth: '200px',
 };

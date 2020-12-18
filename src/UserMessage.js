@@ -68,7 +68,6 @@ class UserMessage extends Component {
         ...secondaryStyle
       };
 
-    // TODO: Bug with span width. Even if the message is short, if the name is long, there is always blank space 
     return (
       <div
         style={{
@@ -95,11 +94,19 @@ class UserMessage extends Component {
             }
           </span>
         </div>
-        <span style={messageStyle}>
-          {
-            message
-          }
-        </span>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'auto',
+            justifyContent: isOwner ? 'end' : 'start'
+          }}
+        >
+          <span style={messageStyle}>
+            {
+              message
+            }
+          </span>
+        </div>
       </div>
     );
   }

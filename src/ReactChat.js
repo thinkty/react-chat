@@ -34,7 +34,10 @@ const defaultProps = {
  * ### Props
  * - height : height of the chat view
  * - width : width of the chat view
- * - messageComponent : user styled UserMessage component
+ * - messages : array of message items
+ * - senderStyle : display style for the sender name 
+ * - primaryStyle : message style for the messages sent by the owner
+ * - secondaryStyle : message style for the messages sent by others
  */
 class ReactChat extends Component {
   render() {

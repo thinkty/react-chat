@@ -9,6 +9,7 @@ import {
   defaultSecondaryStyle,
   defaultSenderStyle,
 } from './lib/styles';
+import InputArea from './InputArea';
 
 const propTypes = {
   messages: PropTypes.arrayOf(PropTypes.instanceOf(Message)).isRequired,
@@ -28,8 +29,7 @@ const defaultProps = {
 };
 
 /**
- * Component for individual dialogue bubbles sent by users. At the moment, the
- * only supported message type is text.
+ * Main component
  * 
  * ### Props
  * - height : height of the chat view
@@ -53,26 +53,29 @@ class ReactChat extends Component {
     return (
       <div
         style={{
-          height,
           width,
-          overflow: 'auto',
         }}
       >
-        {
-          messages &&
-          messages.map((item) => (
-            <UserMessage
-              key={uuidv4()}
-              message={item.message}
-              isOwner={item.isOwner}
-              sender={item.sender}
-              messageType={item.messageType}
-              senderStyle={senderStyle}
-              primaryStyle={primaryStyle}
-              secondaryStyle={secondaryStyle}
-            />
-          ))
-        }
+        <div
+          style={{
+            height,
+            overflow: 'auto',
+          }}
+        >
+          {
+            messages &&
+            messages.map((item) => (
+              <UserMessage
+                key={uuidv4()}
+                {...item}
+                senderStyle={senderStyle}
+                primaryStyle={primaryStyle}
+                secondaryStyle={secondaryStyle}
+              />
+            ))
+          }
+        </div>
+        <InputArea/>
       </div>
     );
   }

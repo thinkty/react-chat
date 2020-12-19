@@ -41,3 +41,19 @@ export const defaultSenderStyle = {
   display: 'inline-block',
   maxWidth: '200px',
 };
+
+// Default textarea style for the InputArea component
+export const defaultTextAreaStyle = {
+  padding: '10px',
+  borderRadius: '10px',
+  border: '1px solid #CCC',
+  boxShadow: '1px 1px 1px #999',
+  resize: 'none',
+};
+
+// Default submit input style for the InputArea component
+export const defaultSubmitInputStyle = {
+  borderRadius: '10px',
+  border: 'thin solid #DCDCDC',
+  boxShadow: '1px 1px 1px #999',
+};

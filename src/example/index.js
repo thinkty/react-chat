@@ -36,12 +36,17 @@ messages.push(new Message({
   messageType: messageTypes.text,
 }));
 
+function onSubmit(value) {
+  console.log('Entered: ' + value);
+}
+
 ReactDOM.render(
   <div>
     <p>React Chat</p>
     <ReactChat
       height="300px"
       width="500px"
+      onSubmit={onSubmit}
       messages={messages}
     />
   </div>

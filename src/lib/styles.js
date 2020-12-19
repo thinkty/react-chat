@@ -44,6 +44,7 @@ export const defaultSenderStyle = {
 
 // Default textarea style for the InputArea component
 export const defaultTextAreaStyle = {
+  fontFamily: 'Helvetica, sans-serif',
   padding: '10px',
   borderRadius: '10px',
   border: '1px solid #CCC',
@@ -53,6 +54,7 @@ export const defaultTextAreaStyle = {
 
 // Default submit input style for the InputArea component
 export const defaultSubmitInputStyle = {
+  fontFamily: 'Helvetica, sans-serif',
   borderRadius: '10px',
   border: 'thin solid #DCDCDC',
   boxShadow: '1px 1px 1px #999',

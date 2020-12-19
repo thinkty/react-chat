@@ -7,7 +7,7 @@ import {
 } from './lib/styles';
 
 const propTypes = {
-  onSubmit: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
   textAreaStyle: withStylesPropTypes,
   submitInputStyle: withStylesPropTypes,
   submitInputColor: PropTypes.string,
@@ -16,9 +16,6 @@ const propTypes = {
 };
 
 const defaultProps = {
-  onSubmit: (value) => {
-    console.log('Entered: ' + value);
-  },
   textAreaStyle: defaultTextAreaStyle,
   submitInputStyle: defaultSubmitInputStyle,
   submitInputColor: '#DCDCDC',
@@ -59,6 +56,9 @@ class InputArea extends Component {
 
     const { value } = this.state;
     const { onSubmit } = this.props;
+    if (typeof onSubmit === 'undefined') {
+      throw new Error('An onSubmit callback function for InputArea is required');
+    }
     onSubmit(value);
 
     this.setState({

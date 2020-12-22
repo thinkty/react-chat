@@ -97,12 +97,16 @@ class ReactChat extends Component {
     return (
       <div
         style={{
+          height,
           width,
+          display: 'grid',
+          gridTemplateColumns: 'auto',
+          gridTemplateRows: 'auto auto',
         }}
       >
         <div
           style={{
-            height,
+            maxHeight: height,
             overflow: 'auto',
             marginBottom: '1px',
           }}

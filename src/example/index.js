@@ -76,13 +76,14 @@ class Example extends Component {
           style={{
             color: '#fff',
             backgroundColor: '#000',
-            padding: '15px'
+            padding: '15px',
+            textAlign: 'center',
           }}
         >
           React Chat Example
         </h1>
         <ReactChat
-          height="300px"
+          height="100vh"
           width="100%"
           onSubmit={this.onSubmitMessage}
           messages={messages}

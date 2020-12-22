@@ -26,6 +26,7 @@ const propTypes = {
   submitInputColor: PropTypes.string,
   submitInputHighlightColor: PropTypes.string,
   submitOnCtrlEnter: PropTypes.bool,
+  autoScrollToBottom: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -39,6 +40,7 @@ const defaultProps = {
   submitInputColor: '#DCDCDC',
   submitInputHighlightColor: '#B3B3B3',
   submitOnCtrlEnter: true,
+  autoScrollToBottom: true,
 };
 
 /**
@@ -57,8 +59,25 @@ const defaultProps = {
  * - submitInputColor : color for the submission button when not hovered
  * - submitInputHighlightColor : color for the submission button when hovered
  * - submitOnCtrlEnter : whether to submit on ctrl and enter both pressed
+ * - autoScrollToBottom : scroll to bottom on mount and on update (new message)
  */
 class ReactChat extends Component {
+  scrollToBottom = () => {
+    const { autoScrollToBottom } = this.props;
+
+    if (autoScrollToBottom) {
+      this.messagesEnd.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  componentDidMount() {
+    this.scrollToBottom();
+  }
+
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
+
   render() {
     const {
       height,
@@ -100,6 +119,7 @@ class ReactChat extends Component {
               />
             ))
           }
+          <div ref={(el) => { this.messagesEnd = el; }}/>
         </div>
         <InputArea
           onSubmit={onSubmit}

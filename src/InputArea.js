@@ -122,13 +122,17 @@ class InputArea extends Component {
       submitInputColor,
     } = this.state;
 
+    const submitInputWidth = submitInputStyle.width
+      ? submitInputStyle.width
+      : defaultSubmitInputStyle.width;
+
     return (
       <form
         onSubmit={this.onSubmit}
         style={{
           width: '100%',
           display: 'grid',
-          gridTemplateColumns: 'auto auto',
+          gridTemplateColumns: `auto ${submitInputWidth}`,
           gap: '5px',
         }}
       >

@@ -54,6 +54,8 @@ export const defaultTextAreaStyle = {
 
 // Default submit input style for the InputArea component
 export const defaultSubmitInputStyle = {
+  width: '60px',
+  height: '30px',
   fontFamily: 'Helvetica, sans-serif',
   borderRadius: '10px',
   border: 'thin solid #DCDCDC',

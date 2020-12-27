@@ -1,6 +1,6 @@
 {
   "name": "react-chat-interface",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Tae Yoon Kim",
   "license": "MIT",
   "description": "A simple chat interface for React",

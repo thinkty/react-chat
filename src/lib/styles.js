@@ -44,7 +44,7 @@ export const defaultSenderStyle = {
 
 // Default textarea style for the InputArea component
 export const defaultTextAreaStyle = {
-  maxHeight: '40px',
+  height: '40px',
   fontFamily: 'Helvetica, sans-serif',
   padding: '10px',
   borderRadius: '10px',

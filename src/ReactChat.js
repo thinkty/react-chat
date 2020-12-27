@@ -101,7 +101,7 @@ class ReactChat extends Component {
           width,
           display: 'grid',
           gridTemplateColumns: 'auto',
-          gridTemplateRows: 'auto auto',
+          alignContent: 'space-between',
         }}
       >
         <div

@@ -1,3 +1,9 @@
 import ReactChat from './ReactChat';
+import UserMessage from './UserMessage';
+import InputArea from './InputArea';
 
-export default ReactChat;
+export {
+  ReactChat as default,
+  UserMessage,
+  InputArea,
+};

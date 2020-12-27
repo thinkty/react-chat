@@ -2,7 +2,7 @@
  * This module contains minor utility functions for other modules
  */
 
-import { messageTypes as types } from "../UserMessage";
+import { messageTypes as types } from '../UserMessage';
 
 const messageTypes = Object.values(types);
 
@@ -20,17 +20,22 @@ export function assert(key, value) {
   }
 }
 
- /**
-  * Check the arguments of the Message class
-  *
-  * @param {*} args Argument object passed to the constructor
-  * @throws on invalid arguments
-  * @returns args
-  */
+/**
+ * Check the arguments of the Message class
+ *
+ * @param {*} args Argument object passed to the constructor
+ * @throws on invalid arguments
+ * @returns args
+ */
 export function checkArgsForMessage(args) {
   assert('args', args);
 
-  const { isOwner, sender, message, messageType } = args;
+  const {
+    isOwner,
+    sender,
+    message,
+    messageType,
+  } = args;
 
   assert('isOwner', isOwner);
   assert('sender', sender);

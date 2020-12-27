@@ -35,12 +35,12 @@ const defaultProps = {
 /**
  * Component for individual dialogue bubbles sent by users. At the moment, the
  * only supported message type is text.
- * 
+ *
  * ### Props
  * - message (*required*) : message content
  * - isOwner : indicates whether the message is sent by the owner
  * - sender : name of the sender
- * - senderStyle : display style for the sender name 
+ * - senderStyle : display style for the sender name
  * - messageType : type of message chosen from the *messageTypes* enum
  * - primaryStyle : message style for the messages sent by the owner
  * - secondaryStyle : message style for the messages sent by others
@@ -54,18 +54,17 @@ class UserMessage extends Component {
       senderStyle,
       messageType,
       primaryStyle,
-      secondaryStyle
+      secondaryStyle,
     } = this.props;
 
-    const messageStyle =
-      isOwner ?
-      {
+    const messageStyle = isOwner
+      ? {
         ...defaultPrimaryStyle,
         ...primaryStyle,
-      } :
-      {
+      }
+      : {
         ...defaultSecondaryStyle,
-        ...secondaryStyle
+        ...secondaryStyle,
       };
 
     return (
@@ -73,14 +72,14 @@ class UserMessage extends Component {
         style={{
           display: 'grid',
           gridTemplateColumns: 'auto',
-          justifyContent: isOwner ? 'end' : 'start'
+          justifyContent: isOwner ? 'end' : 'start',
         }}
       >
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'auto',
-            justifyContent: isOwner ? 'end' : 'start'
+            justifyContent: isOwner ? 'end' : 'start',
           }}
         >
           <span
@@ -98,12 +97,13 @@ class UserMessage extends Component {
           style={{
             display: 'grid',
             gridTemplateColumns: 'auto',
-            justifyContent: isOwner ? 'end' : 'start'
+            justifyContent: isOwner ? 'end' : 'start',
           }}
         >
           <span style={messageStyle}>
             {
-              message
+              messageType === messageTypes.text
+              && message
             }
           </span>
         </div>
@@ -113,6 +113,6 @@ class UserMessage extends Component {
 }
 
 UserMessage.propTypes = propTypes;
-UserMessage.defaultProps  = defaultProps;
+UserMessage.defaultProps = defaultProps;
 
 export default UserMessage;

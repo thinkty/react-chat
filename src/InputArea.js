@@ -21,7 +21,7 @@ const defaultProps = {
   submitInputColor: '#DCDCDC',
   submitInputHighlightColor: '#B3B3B3',
   submitOnCtrlEnter: true,
-}
+};
 
 /**
  * Component for taking user input
@@ -41,6 +41,31 @@ class InputArea extends Component {
       value: '',
       submitInputColor: props.submitInputColor,
     };
+  }
+
+  /**
+   * Issue with the LastPass extension
+   * @see https://github.com/mui-org/material-ui/issues/14860
+   * @see https://github.com/KillerCodeMonkey/ngx-quill/issues/351#issuecomment-511005303
+   */
+  componentDidMount() {
+    document.addEventListener('keydown', this.suppressEnterPropagation, true);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.suppressEnterPropagation, true);
+  }
+
+  suppressEnterPropagation = (e) => {
+    if (e.which === 13 || e.keyCode === 13 || e.key === 'Enter') {
+      e.stopPropagation();
+
+      // Submit on ctrl+enter if allowed
+      const { submitOnCtrlEnter } = this.props;
+      if (submitOnCtrlEnter && e.ctrlKey) {
+        this.onSubmit();
+      }
+    }
   }
 
   onChange = (e) => {
@@ -69,7 +94,7 @@ class InputArea extends Component {
   // When the mouse is hovered over the submit button
   onMouseEnter = () => {
     const { submitInputHighlightColor } = this.props;
-  
+
     this.setState({
       submitInputColor: submitInputHighlightColor,
     });
@@ -78,38 +103,11 @@ class InputArea extends Component {
   // When the mouse is hovered away from the submit button
   onMouseLeave = () => {
     const { submitInputColor } = this.props;
-  
+
     this.setState({
-      submitInputColor: submitInputColor,
+      submitInputColor,
     });
   }
-
-  /**
-   * Issue with the LastPass extension
-   * @see https://github.com/mui-org/material-ui/issues/14860
-   * @see https://github.com/KillerCodeMonkey/ngx-quill/issues/351#issuecomment-511005303
-   */
-  ////
-  componentDidMount() {
-    document.addEventListener('keydown', this.suppressEnterPropagation, true);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.suppressEnterPropagation, true);
-  }
-
-  suppressEnterPropagation = (e) => {
-    if (e.which === 13 || e.keyCode === 13 || e.key === 'Enter') {
-      e.stopPropagation();
-
-      // Submit on ctrl+enter if allowed
-      const { submitOnCtrlEnter } = this.props;
-      if (submitOnCtrlEnter && e.ctrlKey) {
-        this.onSubmit();
-      }
-    }
-  }
-  ////
 
   render() {
     const {
@@ -143,8 +141,7 @@ class InputArea extends Component {
             ...defaultTextAreaStyle,
             ...textAreaStyle,
           }}
-        >
-        </textarea>
+        />
         <input
           type="submit"
           value="Send"

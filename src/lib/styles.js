@@ -6,7 +6,7 @@
 export const defaultPrimaryStyle = {
   color: '#fff',
   backgroundColor: '#7070db',
-  border: `thin solid #7070db`,
+  border: 'thin solid #7070db',
   borderRadius: '10px',
   padding: '6px',
   margin: '3px',

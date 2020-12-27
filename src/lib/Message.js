@@ -1,4 +1,4 @@
-import { checkArgsForMessage } from "./util";
+import { checkArgsForMessage } from './util';
 
 /**
  * Message class takes an argument object with crucial information for the
@@ -11,7 +11,13 @@ import { checkArgsForMessage } from "./util";
  */
 export default class Message {
   constructor(args) {
-    const { isOwner, sender, message, messageType } = checkArgsForMessage(args);
+    const {
+      isOwner,
+      sender,
+      message,
+      messageType,
+    } = checkArgsForMessage(args);
+
     this.isOwner = isOwner;
     this.sender = sender;
     this.message = message;

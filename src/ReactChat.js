@@ -45,13 +45,13 @@ const defaultProps = {
 
 /**
  * Main component
- * 
+ *
  * ### Props
  * - onSubmit : a callback function to be called when submitting
  * - messages : array of message items
  * - height : height of the chat view
  * - width : width of the chat view
- * - senderStyle : display style for the sender name 
+ * - senderStyle : display style for the sender name
  * - primaryStyle : message style for the messages sent by the owner
  * - secondaryStyle : message style for the messages sent by others
  * - textAreaStyle : style props for the text area
@@ -62,20 +62,20 @@ const defaultProps = {
  * - autoScrollToBottom : scroll to bottom on mount and on update (new message)
  */
 class ReactChat extends Component {
-  scrollToBottom = () => {
-    const { autoScrollToBottom } = this.props;
-
-    if (autoScrollToBottom) {
-      this.messagesEnd.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-
   componentDidMount() {
     this.scrollToBottom();
   }
 
   componentDidUpdate() {
     this.scrollToBottom();
+  }
+
+  scrollToBottom = () => {
+    const { autoScrollToBottom } = this.props;
+
+    if (autoScrollToBottom) {
+      this.messagesEnd.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
   render() {
@@ -86,7 +86,7 @@ class ReactChat extends Component {
       messages,
       senderStyle,
       primaryStyle,
-      secondaryStyle, 
+      secondaryStyle,
       textAreaStyle,
       submitInputStyle,
       submitInputColor,
@@ -112,8 +112,8 @@ class ReactChat extends Component {
           }}
         >
           {
-            messages &&
-            messages.map((item) => (
+            messages
+            && messages.map((item) => (
               <UserMessage
                 key={uuidv4()}
                 {...item}
@@ -123,7 +123,7 @@ class ReactChat extends Component {
               />
             ))
           }
-          <div ref={(el) => { this.messagesEnd = el; }}/>
+          <div ref={(el) => { this.messagesEnd = el; }} />
         </div>
         <InputArea
           onSubmit={onSubmit}

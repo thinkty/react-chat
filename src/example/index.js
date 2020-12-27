@@ -47,7 +47,7 @@ class Example extends Component {
       new Message({
         isOwner: true,
         sender: 'Papa Palp',
-        message: `It's treason, then.`,
+        message: 'It is treason, then.',
         messageType: messageTypes.text,
       }),
     ];
@@ -55,9 +55,8 @@ class Example extends Component {
   }
 
   onSubmitMessage = (value) => {
-    console.log('Entered: ' + value);
-
     const { messages } = this.state;
+
     messages.push(new Message({
       isOwner: true,
       sender: 'Papa Palp',
@@ -76,6 +75,7 @@ class Example extends Component {
           style={{
             color: '#fff',
             backgroundColor: '#000',
+            fontFamily: 'Helvetica, sans-serif',
             padding: '15px',
             textAlign: 'center',
           }}
@@ -83,7 +83,7 @@ class Example extends Component {
           React Chat Example
         </h1>
         <ReactChat
-          height="90vh"
+          height="80vh"
           width="100%"
           onSubmit={this.onSubmitMessage}
           messages={messages}
@@ -93,4 +93,4 @@ class Example extends Component {
   }
 }
 
-ReactDOM.render(<Example/>, document.getElementById("root"));
+ReactDOM.render(<Example />, document.getElementById('root'));

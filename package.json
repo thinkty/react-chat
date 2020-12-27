@@ -1,11 +1,17 @@
 {
-  "name": "@warden/react-chat",
-  "version": "1.0.0",
+  "name": "react-chat-interface",
+  "version": "0.0.1",
+  "author": "Tae Yoon Kim",
+  "license": "MIT",
   "description": "A simple chat interface for React",
   "homepage": "https://github.com/thinkty/react-chat",
+  "keywords": ["react", "chat-ui"],
   "repository": {
     "type": "git",
     "url": "https://github.com/thinkty/react-chat.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/",
@@ -15,8 +21,6 @@
     "build:dev": "webpack --config webpack.dev.js",
     "build:prod": "webpack --config webpack.prod.js"
   },
-  "author": "Tae Yoon Kim",
-  "license": "MIT",
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

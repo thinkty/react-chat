@@ -18,7 +18,7 @@ npm i --save react-chat-interface
 | Name                      | Description                                           | Required |  Default  |  Types  |
 |---------------------------|-------------------------------------------------------|:--------:|:---------:|:-------:|
 | onSubmit                  | a callback function to be called when submitting      |     ✓    |           |   func  |
-| messages                  | array of message items                                |     ✓    |           | Message |
+| messages                  | array of message items                                |     ✓    |           | [Message](https://github.com/thinkty/react-chat/blob/master/src/lib/Message.js) |
 | height                    | height of the chat view                               |          |   '100%'  |  string |
 | width                     | width of the chat view                                |          |   '100%'  |  string |
 | senderStyle               | display style for the sender name                     |          |     *     |   CSS   |

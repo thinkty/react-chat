@@ -2,6 +2,11 @@
   "name": "@warden/react-chat",
   "version": "1.0.0",
   "description": "A simple chat interface for React",
+  "homepage": "https://github.com/thinkty/react-chat",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thinkty/react-chat.git"
+  },
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/",
     "lint:fix": "./node_modules/.bin/eslint --fix src/",

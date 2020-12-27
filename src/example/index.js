@@ -83,7 +83,7 @@ class Example extends Component {
           React Chat Example
         </h1>
         <ReactChat
-          height="100vh"
+          height="90vh"
           width="100%"
           onSubmit={this.onSubmitMessage}
           messages={messages}

@@ -3,9 +3,11 @@
 ![downloads](https://img.shields.io/npm/dt/react-chat-interface?style=flat-square)
 ![size](https://img.shields.io/bundlephobia/min/react-chat-interface?style=flat-square)
 ![license](https://img.shields.io/github/license/thinkty/react-chat?style=flat-square)
+
 ![gif preview](https://imgur.com/kh3lmOQ.gif)
 
 React Chat is a simple chat interface for React with a focus on high customizability.
+See [example](https://github.com/thinkty/react-chat/tree/master/src/example) for usage.
 
 ## Installation
 ```

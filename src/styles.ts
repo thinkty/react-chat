@@ -2,9 +2,11 @@
  * This module contains style properties for various components
  */
 
+import { CSSProperties } from "react";
+
 // Default primary message style for the UserMessage component
-export const defaultPrimaryStyle = {
-  color: '#fff',
+export const defaultPrimaryStyle: CSSProperties = {
+  color: '#ffffff',
   backgroundColor: '#7070db',
   border: 'thin solid #7070db',
   borderRadius: '10px',
@@ -17,8 +19,8 @@ export const defaultPrimaryStyle = {
 };
 
 // Default secondary message style for the UserMessage component
-export const defaultSecondaryStyle = {
-  color: '#000',
+export const defaultSecondaryStyle: CSSProperties = {
+  color: '#000000',
   backgroundColor: '#DCDCDC',
   border: 'thin solid #DCDCDC',
   borderRadius: '10px',
@@ -31,7 +33,7 @@ export const defaultSecondaryStyle = {
 };
 
 // Default sender name field style for the UserMessage component
-export const defaultSenderStyle = {
+export const defaultSenderStyle: CSSProperties = {
   color: '#808080',
   fontFamily: 'Helvetica, sans-serif',
   textOverflow: 'ellipsis',
@@ -43,7 +45,7 @@ export const defaultSenderStyle = {
 };
 
 // Default textarea style for the InputArea component
-export const defaultTextAreaStyle = {
+export const defaultTextAreaStyle: CSSProperties = {
   height: '40px',
   fontFamily: 'Helvetica, sans-serif',
   padding: '10px',
@@ -54,7 +56,7 @@ export const defaultTextAreaStyle = {
 };
 
 // Default submit input style for the InputArea component
-export const defaultSubmitInputStyle = {
+export const defaultSubmitButtonStyle: CSSProperties = {
   width: '60px',
   height: '30px',
   fontFamily: 'Helvetica, sans-serif',

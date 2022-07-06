@@ -11,20 +11,11 @@ import {
  * - isOwner: Whether the user who sent the message is the same as the user of the device
  * - author : Name of the user that sent the message
  * - content : Raw message payload
- * - type : Type of message. Could be text, image, video, 
  */
  export type Message = {
   isOwner: boolean;
   sender: string;
   content: string;
-  category: MessageCategory;
-};
-
-export enum MessageCategory {
-  Text,
-  Image,
-  Video,
-  URL,
 };
 
 export type UserMessageProps = {
@@ -50,7 +41,7 @@ export const UserMessage = ({
   primaryStyle = defaultPrimaryStyle,
   secondaryStyle = defaultSecondaryStyle,
 }: UserMessageProps): JSX.Element => {
-  const { isOwner, sender, content, category } = message;
+  const { isOwner, sender, content } = message;
 
   return (
     <div
@@ -79,9 +70,7 @@ export const UserMessage = ({
         }}
       >
         <span style={isOwner ? primaryStyle : secondaryStyle}>
-          {
-            category === MessageCategory.Text && content
-          }
+          { content }
         </span>
       </div>
     </div>

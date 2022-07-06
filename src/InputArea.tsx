@@ -3,10 +3,9 @@ import {
   defaultTextAreaStyle,
   defaultSubmitButtonStyle,
 } from './styles';
-import { MessageCategory } from './UserMessage';
 
 export type InputAreaProps = {
-  onSubmit: (content: string, category: MessageCategory) => void;
+  onSubmit: (content: string) => void;
   textAreaStyle?: React.CSSProperties;
   enableSubmitButton?: boolean;
   enableCtrlEnterSubmit?: boolean,
@@ -19,7 +18,6 @@ export type InputAreaProps = {
 type InputAreaState = {
   hover: boolean;
   content: string;
-  category: MessageCategory
 };
 
 /**
@@ -44,7 +42,6 @@ export class InputArea extends React.Component<InputAreaProps, InputAreaState> {
   override state: InputAreaState = {
     hover: false,
     content: '',
-    category: MessageCategory.Text,
   };
 
   /**
@@ -68,8 +65,8 @@ export class InputArea extends React.Component<InputAreaProps, InputAreaState> {
       const { enableCtrlEnterSubmit = true } = this.props;
 
       if (enableCtrlEnterSubmit && e.ctrlKey) {
-        const { content, category } = this.state;
-        this.props.onSubmit(content, category);
+        const { content } = this.state;
+        this.props.onSubmit(content);
     
         this.setState({ content: '' });
       }
@@ -86,8 +83,8 @@ export class InputArea extends React.Component<InputAreaProps, InputAreaState> {
       e.preventDefault();
     }
 
-    const { content, category } = this.state;
-    this.props.onSubmit(content, category);
+    const { content } = this.state;
+    this.props.onSubmit(content);
 
     this.setState({ content: '' });
   }

@@ -18,7 +18,7 @@ import {
   content: string;
 };
 
-export type UserMessageProps = {
+type UserMessageProps = {
   message: Message;
   senderStyle?: React.CSSProperties;
   primaryStyle?: React.CSSProperties;

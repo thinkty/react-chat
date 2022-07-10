@@ -6,6 +6,7 @@ import {
 
 export type InputAreaProps = {
   onSubmit: (content: string) => void;
+  allowEmptySubmit?: boolean;
   textAreaStyle?: React.CSSProperties;
   enableSubmitButton?: boolean;
   enableCtrlEnterSubmit?: boolean,
@@ -25,6 +26,7 @@ type InputAreaState = {
  *
  * Props
  * - onSubmit : A callback function to be called when submit button or ctrl-enter has been pressed
+ * - allowEmptySubmit: If true, allow onSubmit to be triggered even if content is empty
  * - textAreaStyle : CSS properties for the text area
  * - enableSubmitButton : If true, display submit button
  * - enableCtrlEnterSubmit : If true, enable the ability to submit by pressing ctrl-enter
@@ -83,9 +85,16 @@ export class InputArea extends React.Component<InputAreaProps, InputAreaState> {
       e.preventDefault();
     }
 
+    const { allowEmptySubmit = false } = this.props;
     const { content } = this.state;
-    this.props.onSubmit(content);
 
+    // If empty submits are not allowed and content is empty, ignore.
+    // I know it's more code but put this here for readability.
+    if (!allowEmptySubmit && content == '') {
+      return;
+    }
+
+    this.props.onSubmit(content);
     this.setState({ content: '' });
   }
 

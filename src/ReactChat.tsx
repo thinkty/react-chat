@@ -45,10 +45,6 @@ export class ReactChat extends React.Component<ReactChatProps, {}> {
     this.scrollToBottom();
   }
 
-  override componentDidUpdate() {
-    this.scrollToBottom();
-  }
-
   // Helper function to scroll the view to the bottom of the component
   private scrollToBottom = () => {
     const { autoScrollToBottom = true } = this.props;
@@ -69,6 +65,7 @@ export class ReactChat extends React.Component<ReactChatProps, {}> {
       secondaryStyle = defaultSecondaryStyle,
 
       onSubmit,
+      allowEmptySubmit = false,
       enableSubmitButton = true,
       enableCtrlEnterSubmit = true,
       textAreaStyle = defaultTextAreaStyle,
@@ -114,7 +111,11 @@ export class ReactChat extends React.Component<ReactChatProps, {}> {
           <div ref={(el) => { this.messagesEnd = el; }} />
         </div>
         <InputArea
-          onSubmit={onSubmit}
+          onSubmit={(content: string) => {
+            this.scrollToBottom();
+            onSubmit(content);
+          }}
+          allowEmptySubmit={allowEmptySubmit}
           textAreaStyle={textAreaStyle}
           enableSubmitButton={enableSubmitButton}
           enableCtrlEnterSubmit={enableCtrlEnterSubmit}

@@ -104,12 +104,8 @@ export class InputArea extends React.Component<InputAreaProps, InputAreaState> {
       content,
     } = this.state;
 
-    const currentButtonStyle = hover ? submitButtonHoverStyle : submitButtonStyle;
-    if (hover) {
-      currentButtonStyle.backgroundColor = submitButtonHoverColor;
-    } else {
-      currentButtonStyle.backgroundColor = submitButtonColor;
-    }
+    const currentButtonStyle = hover ? { ...submitButtonHoverStyle } : { ...submitButtonStyle };
+    currentButtonStyle.backgroundColor = hover ? submitButtonHoverColor : submitButtonColor;
 
     return (
       <form

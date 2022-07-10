@@ -53,6 +53,7 @@ export const defaultTextAreaStyle: CSSProperties = {
   border: '1px solid #CCC',
   boxShadow: '1px 1px 1px #999',
   resize: 'none',
+  outline: 'none',
 };
 
 // Default submit input style for the InputArea component
@@ -63,4 +64,5 @@ export const defaultSubmitButtonStyle: CSSProperties = {
   borderRadius: '10px',
   border: 'thin solid #DCDCDC',
   boxShadow: '1px 1px 1px #999',
+  cursor: 'pointer',
 };

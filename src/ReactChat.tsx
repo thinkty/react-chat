@@ -5,8 +5,8 @@ import { InputArea, InputAreaProps } from './InputArea';
 import { defaultSenderStyle, defaultPrimaryStyle, defaultSecondaryStyle, defaultTextAreaStyle, defaultSubmitButtonStyle } from './styles';
 
 type ReactChatProps = {
-  height: string;
-  width: string;
+  height?: string;
+  width?: string;
   messages: Message[];
   autoScrollToBottom?: boolean;
 
@@ -60,8 +60,8 @@ export class ReactChat extends React.Component<ReactChatProps, {}> {
 
   override render() {
     const {
-      height = '100%',
-      width = '100%',
+      height = '500px',
+      width = '300px',
       messages,
 
       senderStyle = defaultSenderStyle,
@@ -84,8 +84,13 @@ export class ReactChat extends React.Component<ReactChatProps, {}> {
           height,
           width,
           display: 'grid',
+          gap: 10,
           gridTemplateColumns: 'auto',
           alignContent: 'space-between',
+          border: '1px solid #CCC',
+          boxShadow: '1px 1px 1px #999',
+          borderRadius: 10,
+          padding: 10,
         }}
       >
         <div

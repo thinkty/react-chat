@@ -22,7 +22,7 @@ type ReactChatProps = {
  * - height : height of the ReactChat component
  * - width : width of the ReactChat component
  * - messages : array of message items
- * - autoScrollToBottom : scroll to bottom on mount and on update (new message)
+ * - autoScrollToBottom : scroll to bottom on mount and on new message
  * 
  * - senderStyle : display style for the sender name
  * - primaryStyle : message style for the messages sent by the owner
@@ -43,6 +43,12 @@ export class ReactChat extends React.Component<ReactChatProps, {}> {
 
   override componentDidMount() {
     this.scrollToBottom();
+  }
+
+  override componentDidUpdate(prevProps: ReactChatProps) {
+    if (prevProps.messages.length !== this.props.messages.length) {
+      this.scrollToBottom();
+    }
   }
 
   // Helper function to scroll the view to the bottom of the component
@@ -111,10 +117,7 @@ export class ReactChat extends React.Component<ReactChatProps, {}> {
           <div ref={(el) => { this.messagesEnd = el; }} />
         </div>
         <InputArea
-          onSubmit={(content: string) => {
-            this.scrollToBottom();
-            onSubmit(content);
-          }}
+          onSubmit={onSubmit}
           allowEmptySubmit={allowEmptySubmit}
           textAreaStyle={textAreaStyle}
           enableSubmitButton={enableSubmitButton}

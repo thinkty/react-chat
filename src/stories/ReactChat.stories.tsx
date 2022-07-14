@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ReactChat } from '../ReactChat';
+import { ReactChat, Message } from '../index';
 
-const messages = [
+const exampleMessages = [
   {
     "isOwner": false,
     "sender": "Mace",
@@ -45,17 +45,27 @@ export default {
 } as ComponentMeta<typeof ReactChat>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof ReactChat> = (args) => <ReactChat {...args} />;
+const Template: ComponentStory<typeof ReactChat> = ({ messages }) => {
+
+  const[messageArray, setMessageArray] = useState<Message[]>(messages)
+
+  return (
+    <ReactChat
+      messages={messageArray}
+      onSubmit={(content) => {
+        setMessageArray([...messageArray, { sender: 'Palp', isOwner: true, content }]);
+      }}
+    />
+  );
+}
 
 export const Empty = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Empty.args = {
   messages: [],
-  onSubmit: () => {},
 };
 
 export const Filled = Template.bind({});
 Filled.args = {
-  messages: messages,
-  onSubmit: () => {},
+  messages: exampleMessages,
 };

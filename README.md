@@ -14,6 +14,22 @@ See [example](https://github.com/thinkty/react-chat/tree/master/src/example) for
 npm i --save react-chat-interface
 ```
 
+## Example
+
+In order to see the examples and play with the configuration, clone/fork this repository and run storybook 
+```
+git clone https://github.com/thinkty/react-chat.git
+```
+```
+cd react-chat
+```
+```
+npm i
+```
+```
+npm run storybook
+```
+
 ## Props
 | Name                   | Description                                                                      | Required |                                      Default                                     |                                           Types                                          |
 |------------------------|----------------------------------------------------------------------------------|:--------:|:--------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------:|

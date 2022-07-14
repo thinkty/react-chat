@@ -87,7 +87,6 @@ export class ReactChat extends React.Component<ReactChatProps, {}> {
           height,
           width,
           display: 'grid',
-          gap: 10,
           gridTemplateColumns: 'auto',
           alignContent: 'space-between',
           border: '1px solid #CCC',
@@ -114,7 +113,10 @@ export class ReactChat extends React.Component<ReactChatProps, {}> {
               />
             ))
           }
-          <div ref={(el) => { this.messagesEnd = el; }} />
+          <div
+            ref={(el) => { this.messagesEnd = el; }}
+            style={{ height: 5 }}
+          />
         </div>
         <InputArea
           onSubmit={onSubmit}

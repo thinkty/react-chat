@@ -29,6 +29,7 @@ type ReactChatProps = {
  * - secondaryStyle : message style for the messages sent by others
  *
  * - onSubmit : A callback function to be called when submit button or ctrl-enter has been pressed
+ * - allowEmptySubmit : If true, allow onSubmit to be triggered even if content is empty
  * - textAreaStyle : CSS properties for the text area
  * - enableSubmitButton : If true, display submit button
  * - enableCtrlEnterSubmit : If true, enable the ability to submit by pressing ctrl-enter

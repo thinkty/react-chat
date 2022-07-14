@@ -15,23 +15,26 @@ npm i --save react-chat-interface
 ```
 
 ## Props
-| Name                      | Description                                           | Required |  Default  |  Types  |
-|---------------------------|-------------------------------------------------------|:--------:|:---------:|:-------:|
-| onSubmit                  | a callback function to be called when submitting      |     ✓    |           |   func  |
-| messages                  | array of message items                                |     ✓    |           | [Message](https://github.com/thinkty/react-chat/blob/master/src/lib/Message.js) |
-| height                    | height of the chat view                               |          |   '100%'  |  string |
-| width                     | width of the chat view                                |          |   '100%'  |  string |
-| senderStyle               | display style for the sender name                     |          |     *     |   CSS   |
-| primaryStyle              | message style for the messages sent by the owner      |          |     *     |   CSS   |
-| secondaryStyle            | message style for the messages sent by others         |          |     *     |   CSS   |
-| textAreaStyle             | style props for the text area                         |          |     *     |   CSS   |
-| submitInputStyle          | style props for the submission button                 |          |     *     |   CSS   |
-| submitInputColor          | color for the submission button when not hovered      |          | '#DCDCDC' |  string |
-| submitInputHighlightColor | color for the submission button when hovered          |          | '#B3B3B3' |  string |
-| submitOnCtrlEnter         | whether to submit on ctrl and enter both pressed      |          |    true   |   bool  |
-| autoScrollToBottom        | scroll to bottom on mount and on update (new message) |          |    true   |   bool  |
-
-For default values of CSS prop types, see [styles.js](https://github.com/thinkty/react-chat/blob/master/src/lib/styles.js).
+| Name                   | Description                                                                      | Required |                                      Default                                     |                                           Types                                          |
+|------------------------|----------------------------------------------------------------------------------|:--------:|:--------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------:|
+| messages               | array of message items                                                           |     ✓    |                                                                                  | [Message](https://github.com/thinkty/react-chat/blob/master/src/UserMessage.tsx#L15)\[\] |
+| onSubmit               | callback function to be called when submit button or ctrl-enter has been pressed |     ✓    |                                                                                  |                                 (content: string) => void                                |
+| height                 | height of the ReactChat component                                                |          |                                       500px                                      |                                          string                                          |
+| width                  | width of the ReactChat component                                                 |          |                                       300px                                      |                                          string                                          |
+| autoScrollToBottom     | scroll to bottom on mount and on new message                                     |          |                                      `true`                                      |                                           bool                                           |
+| senderStyle            | CSS property for the sender name                                                 |          | [styles.ts](https://github.com/thinkty/react-chat/blob/master/src/styles.ts#L36) |                                            CSS                                           |
+| primaryStyle           | CSS property for message sent by the owner                                       |          |  [styles.ts](https://github.com/thinkty/react-chat/blob/master/src/styles.ts#L8) |                                            CSS                                           |
+| secondaryStyle         | CSS property for message sent by others                                          |          | [styles.ts](https://github.com/thinkty/react-chat/blob/master/src/styles.ts#L22) |                                            CSS                                           |
+| allowEmptySubmit       | If true, allow onSubmit to be triggered even if content is empty                 |          |                                      `false`                                     |                                           bool                                           |
+| textAreaStyle          | CSS property for the text-area input                                             |          | [styles.ts](https://github.com/thinkty/react-chat/blob/master/src/styles.ts#L48) |                                            CSS                                           |
+| enableSubmitButton     | If true, display submit button                                                   |          |                                      `true`                                      |                                           bool                                           |
+| enableCtrlEnterSubmit  | If true, enable submit by pressing ctrl-enter                                    |          |                                      `true`                                      |                                           bool                                           |
+| submitButtonColor      | Color of the submit button on non-hover state                                    |          |                                     `#DCDCDC`                                    |                                          string                                          |
+| submitButtonStyle      | CSS property for the submit button                                               |          | [styles.ts](https://github.com/thinkty/react-chat/blob/master/src/styles.ts#L60) |                                            CSS                                           |
+| submitButtonHoverColor | Color of the submit button on hover state                                        |          |                                     `#B3B3B3`                                    |                                          string                                          |
+| submitButtonHoverStyle | CSS property for the submit button on hover state                                |          | [styles.ts](https://github.com/thinkty/react-chat/blob/master/src/styles.ts#L60) |                                            CSS                                           |
+|                        |                                                                                  |          |                                                                                  |                                                                                          |
+|                        |                                                                                  |          |                                                                                  |                                                                                          |
 
 ## License
 [MIT](https://github.com/thinkty/react-chat/blob/master/LICENSE)
